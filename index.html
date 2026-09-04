@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhoan Cevallos | Portafolio</title>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #f2f2f2;
+            --accent-color: #ffffff;
+            --card-bg: #1a1a1a;
+            --secondary-text: #a0a0a0;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            margin: 0;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary-text);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1px));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: #333;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            border: 1px solid #333;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .contact-links a:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Jhoan Cevallos</h1>
+            <p class="subtitle">Estudiante de Ingeniería de Software | Desarrollador Backend</p>
+            <div class="contact-links">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="mailto:tu-correo@ejemplo.com">Contacto</a>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <h2>Perfil</h2>
+                <p>Estudiante de quinto semestre en la Universidad Estatal de Milagro (UNEMI). Orientado a la arquitectura de microservicios, diseño de bases de datos relacionales y desarrollo de integraciones eficientes.</p>
+            </section>
+
+            <section>
+                <h2>Proyectos Destacados</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Microservicio Skan</h3>
+                        <p>Simulación de operaciones de agencia tributaria para generación de facturas integradas a una aplicación web principal.</p>
+                        <div class="tags">
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Gestor de Permisos OOP</h3>
+                        <p>Arquitectura de software por línea de comandos con interfaces abstractas CRUD, serialización de datos y decoradores.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">CLI</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Modelado de Salud</h3>
+                        <p>Diseño de esquemas de datos relacionales, estableciendo llaves primarias y resolviendo relaciones de muchos a muchos.</p>
+                        <div class="tags">
+                            <span class="tag">Oracle SQL</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Experiencia y Certificaciones</h2>
+                <ul>
+                    <li><strong>Colaborador Operativo</strong> - Almacenes Tía (2026 - Presente)</li>
+                    <li><strong>Preparación para Certificación:</strong> Microsoft DP-600 (Implementación de soluciones de análisis con Microsoft Fabric)</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
