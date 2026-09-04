@@ -3,117 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jhoan Cevallos | Portafolio</title>
+    <title>Jhoan Cevallos | Software Engineering</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap');
+
         :root {
-            --bg-color: #0d0d0d;
-            --text-color: #f2f2f2;
-            --accent-color: #ffffff;
-            --card-bg: #1a1a1a;
-            --secondary-text: #a0a0a0;
+            --bg-base: #060b19;
+            --bg-surface: #0b142e;
+            --blue-primary: #00f0ff;
+            --blue-secondary: #38bdf8;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --card-border: rgba(56, 189, 248, 0.2);
         }
         
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
+            background: radial-gradient(circle at top right, #0d1b3e 0%, var(--bg-base) 40%);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
         header {
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 20px;
-            margin-bottom: 40px;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 40px;
+            margin-bottom: 50px;
+            position: relative;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin: 0 0 10px 0;
-            letter-spacing: -1px;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0 0 5px 0;
+            background: linear-gradient(90deg, #ffffff, var(--blue-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1.5px;
         }
 
         .subtitle {
-            font-size: 1.2rem;
-            color: var(--secondary-text);
+            font-size: 1.3rem;
+            color: var(--blue-secondary);
+            font-family: 'Fira Code', monospace;
             margin: 0;
         }
 
-        section {
-            margin-bottom: 40px;
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--secondary-text);
+        h2::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg, var(--blue-primary), transparent);
+            opacity: 0.3;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1px));
-            gap: 20px;
+            gap: 25px;
         }
 
         .card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            transition: transform 0.2s ease;
+            background: var(--bg-surface);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--blue-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
+            transform: translateY(-8px);
+            border-color: var(--blue-secondary);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
         }
 
         .card h3 {
-            margin: 0 0 10px 0;
+            margin: 0 0 12px 0;
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
         }
 
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: auto;
         }
 
         .tag {
-            background: #333;
-            color: #fff;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--blue-secondary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         .contact-links {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
-        .contact-links a {
-            color: var(--text-color);
+        .btn {
+            color: var(--bg-base);
+            background: var(--blue-secondary);
             text-decoration: none;
-            border: 1px solid #333;
-            padding: 8px 16px;
-            border-radius: 4px;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .contact-links a:hover {
-            background: var(--text-color);
-            color: var(--bg-color);
+        .btn-outline {
+            background: transparent;
+            color: var(--blue-secondary);
+            border: 1px solid var(--blue-secondary);
+        }
+
+        .btn:hover {
+            background: var(--blue-primary);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            color: var(--bg-base);
+        }
+
+        .btn-outline:hover {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--blue-primary);
+        }
+
+        .timeline {
+            border-left: 2px solid var(--card-border);
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -37px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--blue-primary);
+            box-shadow: 0 0 10px var(--blue-primary);
+        }
+        
+        .timeline-date {
+            color: var(--blue-secondary);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            display: block;
         }
     </style>
 </head>
@@ -121,26 +211,28 @@
     <div class="container">
         <header>
             <h1>Jhoan Cevallos</h1>
-            <p class="subtitle">Estudiante de Ingeniería de Software | Desarrollador Backend</p>
+            <p class="subtitle">> Ing. de Software | Backend & Infraestructura</p>
             <div class="contact-links">
-                <a href="#">GitHub</a>
-                <a href="#">LinkedIn</a>
-                <a href="mailto:tu-correo@ejemplo.com">Contacto</a>
+                <a href="https://github.com/ijack100" class="btn">GitHub</a>
+                <a href="#" class="btn btn-outline">LinkedIn</a>
+                <a href="mailto:tu-correo@ejemplo.com" class="btn btn-outline">Contacto</a>
             </div>
         </header>
 
         <main>
-            <section>
-                <h2>Perfil</h2>
-                <p>Estudiante de quinto semestre en la Universidad Estatal de Milagro (UNEMI). Orientado a la arquitectura de microservicios, diseño de bases de datos relacionales y desarrollo de integraciones eficientes.</p>
+            <section style="margin-bottom: 60px;">
+                <h2>System.out.println("Perfil");</h2>
+                <p style="font-size: 1.1rem; max-width: 800px; color: var(--text-muted);">
+                    Estudiante de quinto semestre en la Universidad Estatal de Milagro (UNEMI). Especializado en la construcción de arquitecturas escalables, simulación de microservicios, sincronización de hardware y diseño de bases de datos relacionales orientadas al rendimiento.
+                </p>
             </section>
 
-            <section>
-                <h2>Proyectos Destacados</h2>
+            <section style="margin-bottom: 60px;">
+                <h2>Proyectos y Arquitectura</h2>
                 <div class="grid">
                     <div class="card">
-                        <h3>Microservicio Skan</h3>
-                        <p>Simulación de operaciones de agencia tributaria para generación de facturas integradas a una aplicación web principal.</p>
+                        <h3>Skan API</h3>
+                        <p>Desarrollo de un microservicio que simula las operaciones de facturación de una agencia tributaria, diseñado para integración asíncrona con una aplicación web principal.</p>
                         <div class="tags">
                             <span class="tag">FastAPI</span>
                             <span class="tag">Django</span>
@@ -149,31 +241,70 @@
                     </div>
 
                     <div class="card">
-                        <h3>Gestor de Permisos OOP</h3>
-                        <p>Arquitectura de software por línea de comandos con interfaces abstractas CRUD, serialización de datos y decoradores.</p>
+                        <h3>Servidor Concurrente ESP32</h3>
+                        <p>Configuración de simulación de servidor web en microcontrolador. Implementación de hilos, mecanismos de exclusión mutua y planificación de tareas en tiempo real.</p>
                         <div class="tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">CLI</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">FreeRTOS</span>
+                            <span class="tag">Hardware</span>
                         </div>
                     </div>
 
                     <div class="card">
-                        <h3>Modelado de Salud</h3>
-                        <p>Diseño de esquemas de datos relacionales, estableciendo llaves primarias y resolviendo relaciones de muchos a muchos.</p>
+                        <h3>Gestor de Permisos OOP</h3>
+                        <p>Arquitectura de software por línea de comandos utilizando interfaces CRUD abstractas, serialización profunda de datos y decoradores para control de acceso.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">CLI</span>
+                            <span class="tag">Arquitectura</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Desktop Automation Utility</h3>
+                        <p>Script utilitario compilado en ejecutable independiente para la captura de eventos dinámicos de teclado y simulación automatizada de clics de alta frecuencia.</p>
+                        <div class="tags">
+                            <span class="tag">PyInstaller</span>
+                            <span class="tag">Automatización</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>DB Health Model</h3>
+                        <p>Diseño y normalización de esquemas relacionales de alta complejidad para un sistema de gestión de salud, resolviendo múltiples relaciones de muchos a muchos.</p>
                         <div class="tags">
                             <span class="tag">Oracle SQL</span>
-                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Data Modeler</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Interactive Web App</h3>
+                        <p>Desarrollo y despliegue de una Single Page Application estática e interactiva con mecánicas de recolección de elementos dinámicos en el DOM.</p>
+                        <div class="tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Frontend</span>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section>
-                <h2>Experiencia y Certificaciones</h2>
-                <ul>
-                    <li><strong>Colaborador Operativo</strong> - Almacenes Tía (2026 - Presente)</li>
-                    <li><strong>Preparación para Certificación:</strong> Microsoft DP-600 (Implementación de soluciones de análisis con Microsoft Fabric)</li>
-                </ul>
+                <h2>Experiencia & Certificaciones</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">Septiembre 2026</span>
+                        <h3 style="margin: 0 0 5px 0; color: #fff;">Microsoft DP-600 Certification</h3>
+                        <p style="margin: 0; color: var(--text-muted);">Candidato para examen oficial de Implementación de Soluciones de Análisis de Datos utilizando la infraestructura de Microsoft Fabric.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-date">Mayo 2026 - Presente</span>
+                        <h3 style="margin: 0 0 5px 0; color: #fff;">Colaborador Operativo / Caja</h3>
+                        <p style="margin: 0; color: var(--text-muted);">Almacenes Tía. Gestión transaccional de pagos, cobro de servicios básicos y atención directa al cliente en sistemas de punto de venta.</p>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
