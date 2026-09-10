@@ -3,159 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jhoan Cevallos | Software Engineering</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap');
 
+    <title>Jhoan Cevallos | Ingeniería de Software — Backend &amp; Infraestructura</title>
+    <meta name="description" content="Portafolio de Jhoan Cevallos, estudiante de Ingeniería de Software en UNEMI. Backend con Python (FastAPI, Django), microservicios, sistemas embebidos y diseño de bases de datos relacionales.">
+    <meta name="author" content="Jhoan Cevallos">
+    <link rel="canonical" href="https://jcevallos.xyz/">
+    <meta name="theme-color" content="#060b19">
+    <meta name="color-scheme" content="dark">
+
+    <!-- Open Graph / redes sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Jhoan Cevallos">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:url" content="https://jcevallos.xyz/">
+    <meta property="og:title" content="Jhoan Cevallos | Ingeniería de Software">
+    <meta property="og:description" content="Backend, microservicios y bases de datos. Estudiante de Ingeniería de Software en UNEMI.">
+    <meta property="og:image" content="https://jcevallos.xyz/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Jhoan Cevallos — Ingeniería de Software, Backend e Infraestructura">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jhoan Cevallos | Ingeniería de Software">
+    <meta name="twitter:description" content="Backend, microservicios y bases de datos. Estudiante de Ingeniería de Software en UNEMI.">
+    <meta name="twitter:image" content="https://jcevallos.xyz/og-image.png">
+
+    <!-- Favicon: monograma SVG en línea, sin petición extra -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060b19'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' fill='%2300f0ff' text-anchor='middle'%3EJC%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;800&display=swap">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jhoan Cevallos",
+      "url": "https://jcevallos.xyz/",
+      "jobTitle": "Estudiante de Ingeniería de Software",
+      "description": "Backend, microservicios, sistemas embebidos y diseño de bases de datos relacionales.",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universidad Estatal de Milagro (UNEMI)"
+      },
+      "knowsAbout": ["Python", "FastAPI", "Django", "PostgreSQL", "Oracle SQL", "C++", "FreeRTOS", "Microservicios"],
+      "sameAs": ["https://github.com/ijack100"]
+    }
+    </script>
+
+    <style>
+        /* ---------- Tokens ---------- */
         :root {
             --bg-base: #060b19;
             --bg-surface: #0b142e;
+            --bg-elevated: #101c3d;
             --blue-primary: #00f0ff;
             --blue-secondary: #38bdf8;
             --text-main: #e2e8f0;
-            --text-muted: #94a3b8;
-            --card-border: rgba(56, 189, 248, 0.2);
+            --text-muted: #9aa8bd;
+            --card-border: rgba(56, 189, 248, 0.18);
+            --card-border-hover: rgba(56, 189, 248, 0.55);
+            --focus: #7dd3fc;
+
+            --mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+            --radius: 14px;
+            --shell: 1060px;
+            --ease: cubic-bezier(.4, 0, .2, 1);
         }
-        
+
+        /* ---------- Base ---------- */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            /* Compensa la barra de navegación fija al saltar a un ancla */
+            scroll-padding-top: 90px;
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
-            background: radial-gradient(circle at top right, #0d1b3e 0%, var(--bg-base) 40%);
+            background-color: var(--bg-base);
+            background-image:
+                radial-gradient(900px 600px at 88% -8%, rgba(13, 27, 62, .95) 0%, transparent 60%),
+                radial-gradient(700px 500px at 0% 0%, rgba(0, 240, 255, .07) 0%, transparent 55%);
+            background-attachment: fixed;
             color: var(--text-main);
-            font-family: 'Inter', sans-serif;
+            font-family: var(--sans);
+            font-size: 16px;
             line-height: 1.7;
             margin: 0;
-            padding: 0;
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
+
+        img, svg { max-width: 100%; }
+
+        a { color: var(--blue-secondary); }
+
+        /* Foco visible y consistente en todo el sitio */
+        :focus-visible {
+            outline: 2px solid var(--focus);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 12px;
+            top: -100px;
+            z-index: 100;
+            background: var(--blue-primary);
+            color: var(--bg-base);
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: top .2s var(--ease);
+        }
+        .skip-link:focus { top: 12px; }
 
         .container {
-            max-width: 1000px;
+            max-width: var(--shell);
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 0 24px;
         }
 
-        header {
-            border-bottom: 1px solid var(--card-border);
-            padding-bottom: 40px;
-            margin-bottom: 50px;
-            position: relative;
+        /* ---------- Navegación ---------- */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(6, 11, 25, .78);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+            transition: border-color .3s var(--ease), background .3s var(--ease);
         }
+        .nav[data-scrolled="true"] { border-bottom-color: var(--card-border); }
+
+        .nav-inner {
+            max-width: var(--shell);
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .nav-brand {
+            font-family: var(--mono);
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -.5px;
+            white-space: nowrap;
+        }
+        .nav-brand span { color: var(--blue-primary); }
+
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: .9rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: color .2s var(--ease), background .2s var(--ease);
+            white-space: nowrap;
+        }
+        .nav-links a:hover { color: var(--text-main); background: rgba(56, 189, 248, .08); }
+        .nav-links a[aria-current="true"] { color: var(--blue-primary); }
+
+        /* En pantallas pequeñas la marca basta; los enlaces se ocultan */
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .nav-inner { justify-content: center; }
+        }
+
+        /* ---------- Encabezado ---------- */
+        header.hero {
+            padding: clamp(56px, 10vw, 96px) 0 clamp(40px, 6vw, 60px);
+            border-bottom: 1px solid var(--card-border);
+            margin-bottom: clamp(48px, 7vw, 72px);
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            font-family: var(--mono);
+            font-size: .78rem;
+            color: var(--blue-secondary);
+            background: rgba(56, 189, 248, .08);
+            border: 1px solid var(--card-border);
+            padding: 5px 14px;
+            border-radius: 999px;
+            margin-bottom: 22px;
+        }
+        .status::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 8px #4ade80;
+            animation: pulse 2.4s var(--ease) infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.4rem, 8.5vw, 4rem);
             font-weight: 800;
-            margin: 0 0 5px 0;
-            background: linear-gradient(90deg, #ffffff, var(--blue-primary));
+            margin: 0 0 10px;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            background: linear-gradient(92deg, #ffffff 20%, var(--blue-primary));
+            background-clip: text;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1.5px;
+            color: transparent;
+        }
+        /* Si el navegador no recorta el degradado al texto, no dejamos el título invisible */
+        @supports not ((background-clip: text) or (-webkit-background-clip: text)) {
+            h1 { background: none; color: #fff; }
         }
 
         .subtitle {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.25rem);
             color: var(--blue-secondary);
-            font-family: 'Fira Code', monospace;
-            margin: 0;
+            font-family: var(--mono);
+            margin: 0 0 20px;
+            font-weight: 400;
         }
 
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        h2::after {
-            content: "";
-            height: 1px;
-            flex: 1;
-            background: linear-gradient(90deg, var(--blue-primary), transparent);
-            opacity: 0.3;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1px));
-            gap: 25px;
-        }
-
-        .card {
-            background: var(--bg-surface);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid var(--card-border);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 3px;
-            background: var(--blue-primary);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--blue-secondary);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
-        }
-
-        .card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .card h3 {
-            margin: 0 0 12px 0;
-            font-size: 1.4rem;
-            color: #fff;
-        }
-
-        .card p {
+        .hero-lead {
+            font-size: clamp(1rem, 2.4vw, 1.12rem);
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: auto;
-        }
-
-        .tag {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--blue-secondary);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.8rem;
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            max-width: 62ch;
+            margin: 0;
         }
 
         .contact-links {
             display: flex;
-            gap: 15px;
-            margin-top: 30px;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
         }
 
         .btn {
             color: var(--bg-base);
             background: var(--blue-secondary);
             text-decoration: none;
-            padding: 10px 24px;
-            border-radius: 6px;
+            padding: 11px 22px;
+            border-radius: 8px;
             font-weight: 600;
-            transition: all 0.2s;
+            font-size: .95rem;
+            transition: background .2s var(--ease), box-shadow .2s var(--ease),
+                        color .2s var(--ease), transform .2s var(--ease);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 9px;
+        }
+        .btn:hover {
+            background: var(--blue-primary);
+            box-shadow: 0 0 22px rgba(0, 240, 255, .35);
+            color: var(--bg-base);
+            transform: translateY(-2px);
         }
 
         .btn-outline {
@@ -163,150 +285,568 @@
             color: var(--blue-secondary);
             border: 1px solid var(--blue-secondary);
         }
-
-        .btn:hover {
-            background: var(--blue-primary);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
-            color: var(--bg-base);
-        }
-
         .btn-outline:hover {
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(56, 189, 248, .12);
             color: var(--blue-primary);
+            border-color: var(--blue-primary);
+            box-shadow: none;
         }
 
+        .btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+        /* ---------- Secciones y títulos ---------- */
+        section { margin-bottom: clamp(56px, 8vw, 84px); }
+
+        h2 {
+            font-size: clamp(1.4rem, 4vw, 1.75rem);
+            margin: 0 0 32px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-weight: 600;
+            letter-spacing: -.5px;
+        }
+        h2::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg, var(--blue-primary), transparent);
+            opacity: .35;
+        }
+
+        .section-note {
+            font-size: clamp(1rem, 2.4vw, 1.08rem);
+            max-width: 68ch;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* ---------- Stack ---------- */
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+            gap: 18px;
+        }
+
+        .stack-group {
+            background: var(--bg-surface);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 22px;
+        }
+
+        .stack-group h3 {
+            margin: 0 0 14px;
+            font-size: .82rem;
+            font-family: var(--mono);
+            font-weight: 500;
+            color: var(--blue-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        /* ---------- Proyectos ---------- */
+        .grid {
+            display: grid;
+            /* min(300px, 100%) evita el desbordamiento horizontal en móviles estrechos */
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            padding: 26px;
+            border-radius: var(--radius);
+            border: 1px solid var(--card-border);
+            transition: transform .3s var(--ease), border-color .3s var(--ease),
+                        box-shadow .3s var(--ease), background .3s var(--ease);
+            position: relative;
+            overflow: hidden;
+            /* Columna flexible: así `.tags` puede empujarse al fondo con margin-top:auto */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--blue-primary), var(--blue-secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .35s var(--ease);
+        }
+
+        .card:hover,
+        .card:focus-within {
+            transform: translateY(-6px);
+            border-color: var(--card-border-hover);
+            background: var(--bg-elevated);
+            box-shadow: 0 14px 36px rgba(0, 240, 255, .09);
+        }
+        .card:hover::before,
+        .card:focus-within::before { transform: scaleX(1); }
+
+        .card h3 {
+            margin: 0 0 12px;
+            font-size: 1.22rem;
+            color: #fff;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .card h3 a {
+            color: inherit;
+            text-decoration: none;
+        }
+        /* El enlace del título cubre la tarjeta completa: toda la tarjeta es clicable,
+           pero el lector de pantalla sólo anuncia un enlace. */
+        .card h3 a::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+        }
+        .card h3 a:hover { color: var(--blue-primary); }
+
+        .card .arrow {
+            color: var(--blue-secondary);
+            opacity: 0;
+            transform: translateX(-4px);
+            transition: opacity .3s var(--ease), transform .3s var(--ease);
+            flex-shrink: 0;
+        }
+        .card:hover .arrow,
+        .card:focus-within .arrow { opacity: 1; transform: translateX(0); }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: .95rem;
+            margin: 0 0 22px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .tag {
+            background: rgba(56, 189, 248, .08);
+            color: var(--blue-secondary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-family: var(--mono);
+            font-size: .75rem;
+            border: 1px solid rgba(56, 189, 248, .18);
+        }
+
+        /* ---------- Línea de tiempo ---------- */
         .timeline {
             border-left: 2px solid var(--card-border);
             padding-left: 30px;
-            margin-left: 10px;
+            margin-left: 6px;
         }
 
-        .timeline-item {
-            margin-bottom: 30px;
-            position: relative;
-        }
+        .timeline-item { position: relative; }
+        .timeline-item + .timeline-item { margin-top: 34px; }
 
         .timeline-item::before {
             content: "";
             position: absolute;
             left: -37px;
-            top: 6px;
+            top: 8px;
             width: 12px;
             height: 12px;
             border-radius: 50%;
             background: var(--blue-primary);
-            box-shadow: 0 0 10px var(--blue-primary);
+            box-shadow: 0 0 12px var(--blue-primary);
+            border: 2px solid var(--bg-base);
         }
-        
+
         .timeline-date {
             color: var(--blue-secondary);
-            font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
+            font-family: var(--mono);
+            font-size: .85rem;
+            margin-bottom: 4px;
             display: block;
+        }
+
+        .timeline-item h3 {
+            margin: 0 0 4px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .timeline-item p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: .95rem;
+        }
+
+        .timeline-org {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        /* ---------- Contacto y pie ---------- */
+        .contact-panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: clamp(28px, 5vw, 44px);
+            text-align: center;
+        }
+        .contact-panel p {
+            color: var(--text-muted);
+            max-width: 52ch;
+            margin: 0 auto;
+        }
+        .contact-panel .contact-links { justify-content: center; margin-top: 28px; }
+
+        footer {
+            border-top: 1px solid var(--card-border);
+            padding: 28px 0 40px;
+            color: var(--text-muted);
+            font-size: .85rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        footer .built { font-family: var(--mono); font-size: .78rem; opacity: .8; }
+
+        /* ---------- Animación de entrada ---------- */
+        /* Sólo se oculta si hay JS: sin JS el contenido se ve siempre. */
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .6s var(--ease), transform .6s var(--ease);
+        }
+        .js .reveal.is-visible { opacity: 1; transform: none; }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+            .js .reveal { opacity: 1; transform: none; }
+            .card:hover, .btn:hover { transform: none; }
+        }
+
+        /* ---------- Impresión ---------- */
+        @media print {
+            .nav, .skip-link, .contact-panel .contact-links, .status { display: none; }
+            body { background: #fff; color: #000; }
+            h1, h2, h3, .card h3, .timeline-item h3 { color: #000; -webkit-text-fill-color: #000; background: none; }
+            .card, .stack-group, .contact-panel { border: 1px solid #ccc; background: #fff; break-inside: avoid; }
+            .card p, .section-note, .hero-lead, .timeline-item p { color: #333; }
+            a { color: #000; text-decoration: underline; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+
+    <nav class="nav" id="nav" aria-label="Navegación principal">
+        <div class="nav-inner">
+            <a class="nav-brand" href="#top">jhoan<span>.cevallos</span></a>
+            <ul class="nav-links">
+                <li><a href="#perfil">Perfil</a></li>
+                <li><a href="#stack">Stack</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" id="top">
+        <header class="hero">
+            <p class="status">Abierto a prácticas y proyectos</p>
             <h1>Jhoan Cevallos</h1>
-            <p class="subtitle">> Ing. de Software | Backend & Infraestructura</p>
+            <p class="subtitle">&gt; Ing. de Software | Backend &amp; Infraestructura</p>
+            <p class="hero-lead">
+                Construyo el lado del servidor: APIs, microservicios y esquemas de datos
+                pensados para escalar sin sorpresas.
+            </p>
+
             <div class="contact-links">
-                <a href="https://github.com/ijack100" class="btn">GitHub</a>
-                <a href="#" class="btn btn-outline">LinkedIn</a>
-                <a href="mailto:tu-correo@ejemplo.com" class="btn btn-outline">Contacto</a>
+                <a href="https://github.com/ijack100" class="btn" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22l-.01 3.29c0 .32.21.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5Z"/></svg>
+                    GitHub
+                </a>
+                <!-- TODO: reemplazar por la URL real del perfil de LinkedIn. -->
+                <a href="https://www.linkedin.com/in/TU-USUARIO" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm1.78 13.02H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+                    LinkedIn
+                </a>
+                <!-- TODO: reemplazar por el correo real de contacto. -->
+                <a href="mailto:tu-correo@ejemplo.com" class="btn btn-outline">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+                    Contacto
+                </a>
             </div>
         </header>
 
-        <main>
-            <section style="margin-bottom: 60px;">
-                <h2>System.out.println("Perfil");</h2>
-                <p style="font-size: 1.1rem; max-width: 800px; color: var(--text-muted);">
-                    Estudiante de quinto semestre en la Universidad Estatal de Milagro (UNEMI). Especializado en la construcción de arquitecturas escalables, simulación de microservicios, sincronización de hardware y diseño de bases de datos relacionales orientadas al rendimiento.
+        <main id="main">
+            <section id="perfil" class="reveal" aria-labelledby="perfil-h">
+                <h2 id="perfil-h">Perfil</h2>
+                <p class="section-note">
+                    Estudiante de quinto semestre de Ingeniería de Software en la Universidad Estatal
+                    de Milagro (UNEMI). Trabajo en la construcción de arquitecturas escalables,
+                    simulación de microservicios, sincronización de hardware y diseño de bases de
+                    datos relacionales orientadas al rendimiento.
                 </p>
             </section>
 
-            <section style="margin-bottom: 60px;">
-                <h2>Proyectos y Arquitectura</h2>
+            <section id="stack" class="reveal" aria-labelledby="stack-h">
+                <h2 id="stack-h">Stack</h2>
+                <div class="stack-grid">
+                    <div class="stack-group">
+                        <h3>Backend</h3>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">Django</span>
+                        </div>
+                    </div>
+                    <div class="stack-group">
+                        <h3>Bases de datos</h3>
+                        <div class="tags">
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">SQL Server</span>
+                            <span class="tag">Oracle SQL</span>
+                        </div>
+                    </div>
+                    <div class="stack-group">
+                        <h3>Sistemas &amp; hardware</h3>
+                        <div class="tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">FreeRTOS</span>
+                            <span class="tag">ESP32</span>
+                        </div>
+                    </div>
+                    <div class="stack-group">
+                        <h3>Frontend</h3>
+                        <div class="tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                        </div>
+                    </div>
+                    <div class="stack-group">
+                        <h3>Herramientas</h3>
+                        <div class="tags">
+                            <span class="tag">Git</span>
+                            <span class="tag">PyInstaller</span>
+                            <span class="tag">Data Modeler</span>
+                        </div>
+                    </div>
+                    <div class="stack-group">
+                        <h3>Datos &amp; nube</h3>
+                        <div class="tags">
+                            <span class="tag">Microsoft Fabric</span>
+                            <span class="tag">Power BI</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--
+              Cada tarjeta enlaza al repositorio del proyecto. Por ahora apuntan al perfil
+              de GitHub: sustituye cada href por la URL exacta del repo cuando lo publiques.
+            -->
+            <section id="proyectos" class="reveal" aria-labelledby="proyectos-h">
+                <h2 id="proyectos-h">Proyectos y arquitectura</h2>
                 <div class="grid">
-                    <div class="card">
-                        <h3>Skan API</h3>
-                        <p>Desarrollo de un microservicio que simula las operaciones de facturación de una agencia tributaria, diseñado para integración asíncrona con una aplicación web principal.</p>
+                    <article class="card">
+                        <h3>
+                            <a href="https://github.com/ijack100" target="_blank" rel="noopener noreferrer">Skan API</a>
+                            <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                        </h3>
+                        <p>Microservicio que simula las operaciones de facturación de una agencia tributaria, diseñado para integración asíncrona con una aplicación web principal.</p>
                         <div class="tags">
                             <span class="tag">FastAPI</span>
                             <span class="tag">Django</span>
                             <span class="tag">Python</span>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="card">
-                        <h3>Servidor Concurrente ESP32</h3>
-                        <p>Configuración de simulación de servidor web en microcontrolador. Implementación de hilos, mecanismos de exclusión mutua y planificación de tareas en tiempo real.</p>
+                    <article class="card">
+                        <h3>
+                            <a href="https://github.com/ijack100" target="_blank" rel="noopener noreferrer">Servidor concurrente ESP32</a>
+                            <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                        </h3>
+                        <p>Servidor web sobre microcontrolador con hilos, mecanismos de exclusión mutua y planificación de tareas en tiempo real.</p>
                         <div class="tags">
                             <span class="tag">C++</span>
                             <span class="tag">FreeRTOS</span>
                             <span class="tag">Hardware</span>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="card">
-                        <h3>Gestor de Permisos OOP</h3>
-                        <p>Arquitectura de software por línea de comandos utilizando interfaces CRUD abstractas, serialización profunda de datos y decoradores para control de acceso.</p>
+                    <article class="card">
+                        <h3>
+                            <a href="https://github.com/ijack100" target="_blank" rel="noopener noreferrer">Gestor de permisos OOP</a>
+                            <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                        </h3>
+                        <p>Arquitectura por línea de comandos con interfaces CRUD abstractas, serialización profunda de datos y decoradores para control de acceso.</p>
                         <div class="tags">
                             <span class="tag">Python</span>
                             <span class="tag">CLI</span>
                             <span class="tag">Arquitectura</span>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="card">
-                        <h3>Desktop Automation Utility</h3>
-                        <p>Script utilitario compilado en ejecutable independiente para la captura de eventos dinámicos de teclado y simulación automatizada de clics de alta frecuencia.</p>
+                    <article class="card">
+                        <h3>
+                            <a href="https://github.com/ijack100" target="_blank" rel="noopener noreferrer">Desktop Automation Utility</a>
+                            <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                        </h3>
+                        <p>Utilidad compilada en ejecutable independiente para captura de eventos dinámicos de teclado y simulación automatizada de clics de alta frecuencia.</p>
                         <div class="tags">
                             <span class="tag">PyInstaller</span>
                             <span class="tag">Automatización</span>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="card">
-                        <h3>DB Health Model</h3>
+                    <article class="card">
+                        <h3>
+                            <a href="https://github.com/ijack100" target="_blank" rel="noopener noreferrer">DB Health Model</a>
+                            <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                        </h3>
                         <p>Diseño y normalización de esquemas relacionales de alta complejidad para un sistema de gestión de salud, resolviendo múltiples relaciones de muchos a muchos.</p>
                         <div class="tags">
                             <span class="tag">Oracle SQL</span>
                             <span class="tag">Data Modeler</span>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="card">
-                        <h3>Interactive Web App</h3>
-                        <p>Desarrollo y despliegue de una Single Page Application estática e interactiva con mecánicas de recolección de elementos dinámicos en el DOM.</p>
+                    <article class="card">
+                        <h3>
+                            <a href="https://github.com/ijack100" target="_blank" rel="noopener noreferrer">Interactive Web App</a>
+                            <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                        </h3>
+                        <p>Single Page Application estática e interactiva con mecánicas de recolección de elementos dinámicos en el DOM.</p>
                         <div class="tags">
                             <span class="tag">JavaScript</span>
                             <span class="tag">CSS3</span>
                             <span class="tag">Frontend</span>
                         </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="experiencia" class="reveal" aria-labelledby="experiencia-h">
+                <h2 id="experiencia-h">Experiencia &amp; certificaciones</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date"><time datetime="2026-09">Septiembre 2026</time></span>
+                        <h3>Microsoft DP-600</h3>
+                        <p>Candidato al examen oficial de Implementación de Soluciones de Análisis de Datos sobre Microsoft Fabric.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-date"><time datetime="2026-05">Mayo 2026</time> — Presente</span>
+                        <h3>Colaborador operativo / Caja</h3>
+                        <p><span class="timeline-org">Almacenes Tía.</span> Gestión transaccional de pagos, cobro de servicios básicos y atención directa al cliente en sistemas de punto de venta.</p>
                     </div>
                 </div>
             </section>
 
-            <section>
-                <h2>Experiencia & Certificaciones</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="timeline-date">Septiembre 2026</span>
-                        <h3 style="margin: 0 0 5px 0; color: #fff;">Microsoft DP-600 Certification</h3>
-                        <p style="margin: 0; color: var(--text-muted);">Candidato para examen oficial de Implementación de Soluciones de Análisis de Datos utilizando la infraestructura de Microsoft Fabric.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <span class="timeline-date">Mayo 2026 - Presente</span>
-                        <h3 style="margin: 0 0 5px 0; color: #fff;">Colaborador Operativo / Caja</h3>
-                        <p style="margin: 0; color: var(--text-muted);">Almacenes Tía. Gestión transaccional de pagos, cobro de servicios básicos y atención directa al cliente en sistemas de punto de venta.</p>
+            <section id="contacto" class="reveal" aria-labelledby="contacto-h">
+                <h2 id="contacto-h">Contacto</h2>
+                <div class="contact-panel">
+                    <p>¿Tienes un proyecto backend, una vacante de prácticas o una idea que quieras discutir? Escríbeme.</p>
+                    <div class="contact-links">
+                        <!-- TODO: mismo correo que en el encabezado. -->
+                        <a href="mailto:tu-correo@ejemplo.com" class="btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+                            Enviar correo
+                        </a>
+                        <a href="https://github.com/ijack100" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Ver GitHub</a>
                     </div>
                 </div>
             </section>
         </main>
+
+        <footer>
+            <span>&copy; <span id="year">2026</span> Jhoan Cevallos</span>
+            <span class="built">HTML + CSS, sin dependencias.</span>
+        </footer>
     </div>
+
+    <script>
+        // Marca que hay JS para que `.reveal` sólo se oculte cuando podamos revelarlo.
+        document.documentElement.classList.add('js');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            var nav = document.getElementById('nav');
+            var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+            var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+            var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // Borde de la barra de navegación al desplazarse.
+            var onScroll = function () {
+                nav.dataset.scrolled = window.scrollY > 12 ? 'true' : 'false';
+            };
+            onScroll();
+            window.addEventListener('scroll', onScroll, { passive: true });
+
+            if (!('IntersectionObserver' in window)) {
+                document.querySelectorAll('.reveal').forEach(function (el) {
+                    el.classList.add('is-visible');
+                });
+                return;
+            }
+
+            // Entrada progresiva de secciones.
+            if (reduced) {
+                document.querySelectorAll('.reveal').forEach(function (el) {
+                    el.classList.add('is-visible');
+                });
+            } else {
+                var revealer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            revealer.unobserve(entry.target);
+                        }
+                    });
+                }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+
+                document.querySelectorAll('.reveal').forEach(function (el) {
+                    revealer.observe(el);
+                });
+            }
+
+            // Resalta en la navegación la sección visible.
+            var spy = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    navLinks.forEach(function (link) {
+                        var active = link.getAttribute('href') === '#' + entry.target.id;
+                        if (active) {
+                            link.setAttribute('aria-current', 'true');
+                        } else {
+                            link.removeAttribute('aria-current');
+                        }
+                    });
+                });
+            }, { rootMargin: '-45% 0px -50% 0px' });
+
+            sections.forEach(function (section) { spy.observe(section); });
+        });
+    </script>
 </body>
 </html>
